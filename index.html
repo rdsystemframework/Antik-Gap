@@ -5,69 +5,64 @@
 <title>AntikGap</title>
 
 <style>
+
 body{
-font-family: Arial, sans-serif;
+font-family: Arial;
+background:#e8e3d9;
 margin:0;
-background:#e9e5dc;
 }
 
 header{
-background:#2e2e2e;
+background:#2f2f2f;
 color:white;
+text-align:center;
 padding:40px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
 text-align:center;
 }
 
-header h1{
-margin:0;
-font-size:40px;
+.card img{
+width:100%;
+border-radius:6px;
 }
 
-header p{
-margin-top:10px;
-opacity:0.8;
-}
-
-.section{
-padding:40px;
-max-width:1200px;
-margin:auto;
-}
-
-h2{
-margin-bottom:20px;
-}
-
-.shop-button{
+.button{
 display:inline-block;
-padding:15px 30px;
-background:#2e2e2e;
+margin-top:10px;
+padding:10px 20px;
+background:#2f2f2f;
 color:white;
 text-decoration:none;
-border-radius:6px;
-font-size:18px;
-}
-
-.shop-button:hover{
-background:#444;
-}
-
-iframe{
-width:100%;
-height:900px;
-border:none;
-margin-top:30px;
+border-radius:5px;
 }
 
 footer{
-background:#2e2e2e;
+background:#2f2f2f;
 color:white;
 text-align:center;
 padding:20px;
 margin-top:40px;
 }
-</style>
 
+</style>
 </head>
 
 <body>
@@ -77,19 +72,31 @@ margin-top:40px;
 <p>Antiquitäten & Sammlerstücke aus Garmisch-Partenkirchen</p>
 </header>
 
-<div class="section">
+<div class="container">
 
-<h2>Aktuelle Angebote</h2>
+<h2>Besuchen Sie unseren eBay Shop</h2>
 
-<p>
-Hier finden Sie eine Auswahl besonderer Stücke aus unserem eBay-Shop.
-</p>
+<div class="grid">
 
-<a class="shop-button" href="https://ebay.us/m/9VSnUz" target="_blank">
-Alle Angebote auf eBay ansehen
-</a>
+<div class="card">
+<img src="https://i.ebayimg.com/images/g/placeholder/s-l1600.jpg">
+<h3>Antike Sammlerstücke</h3>
+<a class="button" href="https://ebay.us/m/9VSnUz" target="_blank">Zum Shop</a>
+</div>
 
-<iframe src="https://ebay.us/m/9VSnUz"></iframe>
+<div class="card">
+<img src="https://i.ebayimg.com/images/g/placeholder/s-l1600.jpg">
+<h3>Vintage Antiquitäten</h3>
+<a class="button" href="https://ebay.us/m/9VSnUz" target="_blank">Artikel ansehen</a>
+</div>
+
+<div class="card">
+<img src="https://i.ebayimg.com/images/g/placeholder/s-l1600.jpg">
+<h3>Sammlerobjekte</h3>
+<a class="button" href="https://ebay.us/m/9VSnUz" target="_blank">Jetzt entdecken</a>
+</div>
+
+</div>
 
 </div>
 
