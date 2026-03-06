@@ -2,28 +2,50 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Antik Garmisch Partenkirchen</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 body{
-font-family: Georgia, serif;
-background:#f3efe6;
+font-family: Arial, sans-serif;
 margin:0;
+background:#f5f5f5;
 color:#333;
 }
 
 header{
-background:#2c2c2c;
+background:white;
+padding:20px;
+border-bottom:1px solid #ddd;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+}
+
+.shop-button{
+background:#3665f3;
 color:white;
+padding:10px 20px;
+border-radius:4px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+background:#eee;
 padding:40px;
 text-align:center;
 }
 
-header h1{
+.hero h1{
 margin:0;
-font-size:36px;
+font-size:34px;
 }
 
 .container{
@@ -34,20 +56,25 @@ padding:40px 20px;
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
 .card{
 background:white;
-border-radius:8px;
+border:1px solid #ddd;
+border-radius:6px;
 overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
+transition:0.2s;
+}
+
+.card:hover{
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card img{
 width:100%;
-height:220px;
+height:200px;
 object-fit:cover;
 }
 
@@ -55,92 +82,123 @@ object-fit:cover;
 padding:15px;
 }
 
-.card-content h3{
-font-size:18px;
-margin:0 0 10px 0;
+.price{
+color:#111;
+font-weight:bold;
+margin-top:5px;
 }
 
-.button{
+.view{
 display:inline-block;
-padding:10px 15px;
-background:#8b6f47;
+margin-top:10px;
+background:#3665f3;
 color:white;
-text-decoration:none;
+padding:8px 12px;
 border-radius:4px;
+text-decoration:none;
+font-size:14px;
 }
 
 footer{
-text-align:center;
-padding:30px;
-background:#2c2c2c;
+background:#222;
 color:white;
+text-align:center;
+padding:20px;
 margin-top:40px;
 }
 
 </style>
-</head>
 
+</head>
 <body>
 
 <header>
-<h1>Antik Garmisch Partenkirchen</h1>
-<p>Antiquitäten & Sammlerstücke</p>
+
+<div class="logo">Antik Garmisch Partenkirchen</div>
+
+<a class="shop-button"
+href="https://www.ebay.de/str/antikgarmischpartenkirchen"
+target="_blank">
+Shop auf eBay besuchen
+</a>
+
 </header>
+
+<div class="hero">
+
+<h1>Antiquitäten & Sammlerstücke</h1>
+
+<p>Originale Stücke aus unserem Shop in Garmisch-Partenkirchen</p>
+
+</div>
 
 <div class="container">
 
-<h2>Aktuelle Angebote</h2>
+<h2>Ausgewählte Artikel</h2>
 
-<div id="items" class="grid"></div>
+<div class="grid">
+
+<div class="card">
+<img src="https://picsum.photos/300/200?1">
+<div class="card-content">
+<div>Historische Sammlerfigur</div>
+<div class="price">Preis auf eBay ansehen</div>
+<a class="view"
+href="https://www.ebay.de/str/antikgarmischpartenkirchen"
+target="_blank">
+Artikel ansehen
+</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300/200?2">
+<div class="card-content">
+<div>Militaria Sammlerstück</div>
+<div class="price">Preis auf eBay ansehen</div>
+<a class="view"
+href="https://www.ebay.de/str/antikgarmischpartenkirchen"
+target="_blank">
+Artikel ansehen
+</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300/200?3">
+<div class="card-content">
+<div>Historische Münze</div>
+<div class="price">Preis auf eBay ansehen</div>
+<a class="view"
+href="https://www.ebay.de/str/antikgarmischpartenkirchen"
+target="_blank">
+Artikel ansehen
+</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300/200?4">
+<div class="card-content">
+<div>Antikes Dekorationsstück</div>
+<div class="price">Preis auf eBay ansehen</div>
+<a class="view"
+href="https://www.ebay.de/str/antikgarmischpartenkirchen"
+target="_blank">
+Artikel ansehen
+</a>
+</div>
+</div>
+
+</div>
 
 </div>
 
 <footer>
+
 Antik Garmisch Partenkirchen · Antiquitätenhandel
+
 </footer>
-
-<script>
-
-const rssFeed = "https://wispy-frog-77ce.rd-system-framework.workers.dev";
-
-fetch(rssFeed)
-.then(response => response.text())
-.then(str => new window.DOMParser().parseFromString(str,"text/xml"))
-.then(data => {
-
-const items = data.querySelectorAll("item");
-const container = document.getElementById("items");
-
-items.forEach(el => {
-
-const title = el.querySelector("title").textContent;
-const link = el.querySelector("link").textContent;
-
-let img = "";
-const desc = el.querySelector("description").textContent;
-const match = desc.match(/src="(.*?)"/);
-
-if(match){
-img = match[1];
-}
-
-const card = `
-<div class="card">
-<img src="${img}">
-<div class="card-content">
-<h3>${title}</h3>
-<a class="button" href="${link}" target="_blank">Bei eBay ansehen</a>
-</div>
-</div>
-`;
-
-container.innerHTML += card;
-
-});
-
-});
-
-</script>
 
 </body>
 </html>
