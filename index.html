@@ -5,7 +5,6 @@
 <title>AntikGap</title>
 
 <style>
-
 body{
 font-family:Arial;
 background:#e8e3d9;
@@ -61,8 +60,8 @@ text-align:center;
 padding:20px;
 margin-top:40px;
 }
-
 </style>
+
 </head>
 
 <body>
@@ -74,35 +73,50 @@ margin-top:40px;
 
 <div class="container">
 
-<h2>Ausgewählte Stücke</h2>
+<h2>Aktuelle Angebote</h2>
 
-<div class="grid">
-
-<div class="card">
-<img src="https://i.ebayimg.com/images/g/0NAAAOSwqW9lXc9Q/s-l1600.jpg">
-<h3>Antikes Sammlerstück</h3>
-<a class="button" href="https://ebay.us/m/9VSnUz" target="_blank">Artikel ansehen</a>
-</div>
-
-<div class="card">
-<img src="https://i.ebayimg.com/images/g/WsAAAOSwqHplXc~Z/s-l1600.jpg">
-<h3>Vintage Objekt</h3>
-<a class="button" href="https://ebay.us/m/9VSnUz" target="_blank">Artikel ansehen</a>
-</div>
-
-<div class="card">
-<img src="https://i.ebayimg.com/images/g/bEAAAOSwHkVlXc9f/s-l1600.jpg">
-<h3>Sammlerfigur</h3>
-<a class="button" href="https://ebay.us/m/9VSnUz" target="_blank">Artikel ansehen</a>
-</div>
-
-</div>
+<div class="grid" id="items"></div>
 
 </div>
 
 <footer>
 AntikGap • Antiquitätenhandel • Garmisch-Partenkirchen
 </footer>
+
+<script>
+
+fetch("https://api.allorigins.win/raw?url=https://www.ebay.de/sch/i.html?_ssn=antikgap&_rss=1")
+.then(res => res.text())
+.then(str => new window.DOMParser().parseFromString(str,"text/xml"))
+.then(data => {
+
+const items = data.querySelectorAll("item");
+const container = document.getElementById("items");
+
+items.forEach(el => {
+
+const title = el.querySelector("title").textContent;
+const link = el.querySelector("link").textContent;
+
+const description = el.querySelector("description").textContent;
+const imgMatch = description.match(/src="(.*?)"/);
+const img = imgMatch ? imgMatch[1] : "";
+
+const card = `
+<div class="card">
+<img src="${img}">
+<h3>${title}</h3>
+<a class="button" href="${link}" target="_blank">Bei eBay ansehen</a>
+</div>
+`;
+
+container.innerHTML += card;
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
