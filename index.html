@@ -2,91 +2,109 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>AntikGap</title>
+<title>Antik Garmisch Partenkirchen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+
 body{
-font-family:Arial;
-background:#e8e3d9;
+font-family: Georgia, serif;
+background:#f3efe6;
 margin:0;
+color:#333;
 }
 
 header{
-background:#2f2f2f;
+background:#2c2c2c;
 color:white;
-text-align:center;
 padding:40px;
+text-align:center;
+}
+
+header h1{
+margin:0;
+font-size:36px;
 }
 
 .container{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
-padding:40px;
+padding:40px 20px;
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+gap:25px;
 }
 
 .card{
 background:white;
-padding:15px;
 border-radius:8px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
-text-align:center;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
 .card img{
 width:100%;
-border-radius:6px;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:15px;
+}
+
+.card-content h3{
+font-size:18px;
+margin:0 0 10px 0;
 }
 
 .button{
 display:inline-block;
-margin-top:10px;
-padding:10px 20px;
-background:#2f2f2f;
+padding:10px 15px;
+background:#8b6f47;
 color:white;
 text-decoration:none;
-border-radius:5px;
+border-radius:4px;
 }
 
 footer{
-background:#2f2f2f;
-color:white;
 text-align:center;
-padding:20px;
+padding:30px;
+background:#2c2c2c;
+color:white;
 margin-top:40px;
 }
-</style>
 
+</style>
 </head>
 
 <body>
 
 <header>
-<h1>AntikGap</h1>
-<p>Antiquitäten & Sammlerstücke aus Garmisch-Partenkirchen</p>
+<h1>Antik Garmisch Partenkirchen</h1>
+<p>Antiquitäten & Sammlerstücke</p>
 </header>
 
 <div class="container">
 
 <h2>Aktuelle Angebote</h2>
 
-<div class="grid" id="items"></div>
+<div id="items" class="grid"></div>
 
 </div>
 
 <footer>
-AntikGap • Antiquitätenhandel • Garmisch-Partenkirchen
+Antik Garmisch Partenkirchen · Antiquitätenhandel
 </footer>
 
 <script>
 
-fetch("https://api.allorigins.win/raw?url=https://www.ebay.de/sch/i.html?_ssn=antikgap&_rss=1")
-.then(res => res.text())
+const rssFeed = "https://wispy-frog-77ce.rd-system-framework.workers.dev";
+
+fetch(rssFeed)
+.then(response => response.text())
 .then(str => new window.DOMParser().parseFromString(str,"text/xml"))
 .then(data => {
 
@@ -98,15 +116,21 @@ items.forEach(el => {
 const title = el.querySelector("title").textContent;
 const link = el.querySelector("link").textContent;
 
-const description = el.querySelector("description").textContent;
-const imgMatch = description.match(/src="(.*?)"/);
-const img = imgMatch ? imgMatch[1] : "";
+let img = "";
+const desc = el.querySelector("description").textContent;
+const match = desc.match(/src="(.*?)"/);
+
+if(match){
+img = match[1];
+}
 
 const card = `
 <div class="card">
 <img src="${img}">
+<div class="card-content">
 <h3>${title}</h3>
 <a class="button" href="${link}" target="_blank">Bei eBay ansehen</a>
+</div>
 </div>
 `;
 
