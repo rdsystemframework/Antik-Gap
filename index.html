@@ -10,28 +10,28 @@
 body{
 font-family: Arial, sans-serif;
 margin:0;
-background:#f5f5f5;
+background:#f4f4f4;
 color:#333;
 }
 
 header{
-background:white;
-padding:20px;
+background:#ffffff;
 border-bottom:1px solid #ddd;
+padding:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 
 .logo{
-font-size:24px;
+font-size:22px;
 font-weight:bold;
 }
 
-.shop-button{
+.shop-btn{
 background:#3665f3;
 color:white;
-padding:10px 20px;
+padding:10px 18px;
 border-radius:4px;
 text-decoration:none;
 font-weight:bold;
@@ -45,7 +45,7 @@ text-align:center;
 
 .hero h1{
 margin:0;
-font-size:34px;
+font-size:32px;
 }
 
 .container{
@@ -56,7 +56,7 @@ padding:40px 20px;
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:20px;
 }
 
@@ -65,11 +65,6 @@ background:white;
 border:1px solid #ddd;
 border-radius:6px;
 overflow:hidden;
-transition:0.2s;
-}
-
-.card:hover{
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card img{
@@ -82,10 +77,9 @@ object-fit:cover;
 padding:15px;
 }
 
-.price{
-color:#111;
-font-weight:bold;
-margin-top:5px;
+.card-title{
+font-size:16px;
+margin-bottom:8px;
 }
 
 .view{
@@ -93,7 +87,7 @@ display:inline-block;
 margin-top:10px;
 background:#3665f3;
 color:white;
-padding:8px 12px;
+padding:8px 14px;
 border-radius:4px;
 text-decoration:none;
 font-size:14px;
@@ -115,17 +109,17 @@ margin-top:40px;
 <header>
 <div class="logo">Antik Garmisch Partenkirchen</div>
 
-<a class="shop-button"
+<a class="shop-btn"
 href="https://www.ebay.de/str/antikgarmischpartenkirchen"
 target="_blank">
-Shop auf eBay besuchen
+Shop auf eBay
 </a>
 </header>
 
-<div class="hero">
+<section class="hero">
 <h1>Antiquitäten & Sammlerstücke</h1>
 <p>Originale Stücke aus unserem Shop in Garmisch-Partenkirchen</p>
-</div>
+</section>
 
 <div class="container">
 
@@ -136,52 +130,32 @@ Shop auf eBay besuchen
 <div class="card">
 <img src="https://i.ebayimg.com/images/g/DYcAAOSw9RBl81Yc/s-l1600.webp">
 <div class="card-content">
-<div>Historische Sammlerfigur</div>
-<div class="price">Preis auf eBay ansehen</div>
-<a class="view"
-href="https://www.ebay.de/str/antikgarmischpartenkirchen"
-target="_blank">
-Artikel ansehen
-</a>
+<div class="card-title">Historische Sammlerfigur</div>
+<a class="view" href="https://www.ebay.de/str/antikgarmischpartenkirchen" target="_blank">Artikel ansehen</a>
 </div>
 </div>
 
 <div class="card">
 <img src="https://i.ebayimg.com/images/g/mWgAAOSwdoplWUrJ/s-l1600.webp">
 <div class="card-content">
-<div>Militaria Sammlerstück</div>
-<div class="price">Preis auf eBay ansehen</div>
-<a class="view"
-href="https://www.ebay.de/str/antikgarmischpartenkirchen"
-target="_blank">
-Artikel ansehen
-</a>
+<div class="card-title">Militaria Sammlerstück</div>
+<a class="view" href="https://www.ebay.de/str/antikgarmischpartenkirchen" target="_blank">Artikel ansehen</a>
 </div>
 </div>
 
 <div class="card">
 <img src="https://i.ebayimg.com/images/g/epYAAOSwO0plV4Y6/s-l1600.webp">
 <div class="card-content">
-<div>Historische Sammlermünze</div>
-<div class="price">Preis auf eBay ansehen</div>
-<a class="view"
-href="https://www.ebay.de/str/antikgarmischpartenkirchen"
-target="_blank">
-Artikel ansehen
-</a>
+<div class="card-title">Historische Sammlermünze</div>
+<a class="view" href="https://www.ebay.de/str/antikgarmischpartenkirchen" target="_blank">Artikel ansehen</a>
 </div>
 </div>
 
 <div class="card">
 <img src="https://i.ebayimg.com/images/g/~lcAAOSwpQBgrX0G/s-l1600.webp">
 <div class="card-content">
-<div>Antikes Dekorationsstück</div>
-<div class="price">Preis auf eBay ansehen</div>
-<a class="view"
-href="https://www.ebay.de/str/antikgarmischpartenkirchen"
-target="_blank">
-Artikel ansehen
-</a>
+<div class="card-title">Antikes Dekorationsstück</div>
+<a class="view" href="https://www.ebay.de/str/antikgarmischpartenkirchen" target="_blank">Artikel ansehen</a>
 </div>
 </div>
 
