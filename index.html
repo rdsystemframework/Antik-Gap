@@ -8,14 +8,16 @@
 <style>
 
 body{
-font-family: Arial, sans-serif;
 margin:0;
+font-family:Arial, sans-serif;
 background:#f4f4f4;
 color:#333;
 }
 
+/* HEADER */
+
 header{
-background:#ffffff;
+background:white;
 border-bottom:1px solid #ddd;
 padding:20px;
 display:flex;
@@ -37,15 +39,38 @@ text-decoration:none;
 font-weight:bold;
 }
 
+/* HERO MIT HINTERGRUND */
+
 .hero{
-background:#e9e9e9;
-padding:40px;
+
+background-image:url("garmisch.jpg.png");
+
+background-size:cover;
+background-position:center;
+
+height:420px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
 text-align:center;
+color:white;
+
+}
+
+.hero-overlay{
+
+background:rgba(0,0,0,0.45);
+
+padding:40px;
+border-radius:6px;
+
 }
 
 .hero h1{
 margin:0;
-font-size:32px;
+font-size:40px;
 }
 
 .container{
@@ -107,6 +132,7 @@ margin-top:40px;
 <body>
 
 <header>
+
 <div class="logo">Antik Garmisch Partenkirchen</div>
 
 <a class="shop-btn"
@@ -114,11 +140,18 @@ href="https://www.ebay.de/str/antikgarmischpartenkirchen"
 target="_blank">
 Shop auf eBay
 </a>
+
 </header>
 
 <section class="hero">
+
+<div class="hero-overlay">
+
 <h1>Antiquitäten & Sammlerstücke</h1>
 <p>Originale Stücke aus unserem Shop in Garmisch-Partenkirchen</p>
+
+</div>
+
 </section>
 
 <div class="container">
